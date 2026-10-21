@@ -1,0 +1,6 @@
+# This directory is currently reserved for future modular reorganization.
+# The active FastAPI backend server and modules reside at the project root:
+# - main.py
+# - services/
+# - ml/
+# - tests/

@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Connaught Place",
+        "city": "New Delhi",
+        "latitude": 28.6315,
+        "longitude": 77.2167
+    },
+    {
+        "name": "Central Pune",
+        "city": "Pune",
+        "latitude": 18.5204,
+        "longitude": 73.8567
+    },
+    {
+        "name": "Hinjawadi, Mulshi Subdistrict",
+        "city": "Mulshi Subdistrict",
+        "latitude": 18.5927532,
+        "longitude": 73.7382151
+    },
+    {
+        "name": "Sarasbaug, swargate, Swargate, Pune, Pune City Subdistrict, Pune, Maharashtra, 411009, India",
+        "city": "Pune",
+        "latitude": 18.5004949,
+        "longitude": 73.8529037
+    },
+    {
+        "name": "Mumbai CSMT, Dr Dadabhai Naoroji Road, Bori Bunder, Fort, A Ward, Mumbai Zone 1, Mumbai, Mumbai City District, Maharashtra, 400001, India",
+        "city": "Mumbai",
+        "latitude": 18.9414186,
+        "longitude": 72.8354328
+    },
+    {
+        "name": "Deccan / Shivajinagar, Pune",
+        "city": "Pune",
+        "latitude": 18.52482171408428,
+        "longitude": 73.84277780462261
+    }
+]

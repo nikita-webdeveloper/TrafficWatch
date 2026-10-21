@@ -1,0 +1,26 @@
+[
+    {
+        "id": "loc-1792230561544-04ba3a",
+        "name": "Bibwewadi",
+        "label": "Home",
+        "address": "Bibwewadi, Pune, Maharashtra",
+        "city": "Pune",
+        "area": "Bibwewadi",
+        "latitude": 18.466211,
+        "longitude": 73.86278,
+        "created_at": "2026-10-17T15:19:21+05:30",
+        "updated_at": "2026-10-17T15:19:21+05:30"
+    },
+    {
+        "id": "loc-1792230599204-a8ea9e",
+        "name": "Swargate",
+        "label": "Other",
+        "address": "Swargate, Pune, Maharashtra",
+        "city": "Pune",
+        "area": "Swargate",
+        "latitude": 18.499022,
+        "longitude": 73.859065,
+        "created_at": "2026-10-17T15:19:59+05:30",
+        "updated_at": "2026-10-17T15:19:59+05:30"
+    }
+]

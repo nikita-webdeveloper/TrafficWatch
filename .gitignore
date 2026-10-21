@@ -1,0 +1,110 @@
+# ==============================================================================
+# TrafficWatch - Comprehensive Git Ignore
+# ==============================================================================
+
+# Environment variables & secrets (CRITICAL: Never commit credentials)
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+fronted/.env
+fronted/.env.*
+fronted/.env.local
+!fronted/.env.example
+
+# Python virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+# Python packaging build artifacts
+/build/
+/dist/
+/develop-eggs/
+/downloads/
+/eggs/
+/.eggs/
+/parts/
+/sdist/
+/var/
+/wheels/
+/share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Test, coverage & profiling caches
+.pytest_cache/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+.tox/
+.nox/
+
+# Frontend dependencies & build artifacts
+node_modules/
+fronted/node_modules/
+fronted/dist/
+fronted/dist-ssr/
+fronted/.output/
+fronted/.wrangler/
+fronted/.vinxi/
+fronted/.tanstack/
+fronted/.nitro/
+fronted/.dev.vars
+
+# Package manager debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun.report*
+*.log
+
+# Operating System temporary files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# IDE & Editor configurations
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.sublime-workspace
+*.sublime-project
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.orig

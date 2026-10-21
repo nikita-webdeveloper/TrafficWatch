@@ -1,0 +1,769 @@
+{
+    "model_name": "Persistence",
+    "selected_model_by_horizon": {
+        "15m": "Persistence",
+        "30m": "Persistence",
+        "60m": "Persistence"
+    },
+    "supported_horizons": [
+        15,
+        30,
+        60
+    ],
+    "target": "congestion_percent_delta",
+    "trained_at": "2026-10-18T07:51:12.526974+00:00",
+    "training_data_cutoff_timestamp": "2026-10-17T15:25:02+05:30",
+    "dataset_path": "C:\\Projects\\TrafficWatch\\data\\cleaned_traffic.csv",
+    "total_dataset_rows": 1304,
+    "feature_columns": [
+        "current_congestion_percent",
+        "current_speed_kmh",
+        "free_flow_speed_kmh",
+        "speed_ratio",
+        "free_flow_gap",
+        "hour",
+        "dayofweek",
+        "is_weekend",
+        "sin_hour",
+        "cos_hour",
+        "sin_dow",
+        "cos_dow",
+        "prior_congestion",
+        "prior_speed",
+        "cong_trend",
+        "speed_trend"
+    ],
+    "evaluation_by_horizon": {
+        "15m": {
+            "horizon_minutes": 15,
+            "supported": true,
+            "selected_model_name": "Persistence",
+            "selected_algorithm": "Persistence Baseline (maintains current conditions, delta = 0)",
+            "selection_rationale": "Persistence selected for production on 15m horizon: achieved lowest/most robust error on validation (MAE 6.94%) and held-out test (MAE 3.97%). Prevents phantom volatility during steady-state traffic.",
+            "total_pairs": 1075,
+            "train_samples": 592,
+            "val_samples": 209,
+            "test_samples": 215,
+            "train_time_range": [
+                "2026-10-15T08:49:27+05:30",
+                "2026-10-17T15:25:02+05:30"
+            ],
+            "val_time_range": [
+                "2026-10-17T15:40:01+05:30",
+                "2026-10-18T10:35:09+05:30"
+            ],
+            "test_time_range": [
+                "2026-10-18T10:49:42+05:30",
+                "2026-10-18T12:24:58+05:30"
+            ],
+            "training_data_cutoff_timestamp": "2026-10-17T15:25:02+05:30",
+            "validation_metrics": {
+                "Persistence": {
+                    "mae_percent": 6.939,
+                    "rmse_percent": 10.396,
+                    "mape": 56.04
+                },
+                "RandomForest": {
+                    "mae_percent": 6.874,
+                    "rmse_percent": 9.466,
+                    "mape": 58.55
+                },
+                "HistGradientBoosting": {
+                    "mae_percent": 7.068,
+                    "rmse_percent": 9.608,
+                    "mape": 60.83
+                },
+                "Ridge": {
+                    "mae_percent": 8.238,
+                    "rmse_percent": 10.498,
+                    "mape": 90.09
+                },
+                "HistoricalAvg": {
+                    "mae_percent": 8.445,
+                    "rmse_percent": 10.495,
+                    "mape": 89.46
+                }
+            },
+            "test_metrics": {
+                "Persistence": {
+                    "mae_percent": 3.968,
+                    "rmse_percent": 7.382,
+                    "mape": 37.22
+                },
+                "RandomForest": {
+                    "mae_percent": 6.633,
+                    "rmse_percent": 8.525,
+                    "mape": 91.68
+                },
+                "HistGradientBoosting": {
+                    "mae_percent": 6.838,
+                    "rmse_percent": 8.418,
+                    "mape": 93.61
+                },
+                "Ridge": {
+                    "mae_percent": 7.741,
+                    "rmse_percent": 9.155,
+                    "mape": 116.75
+                },
+                "HistoricalAvg": {
+                    "mae_percent": 13.204,
+                    "rmse_percent": 14.738,
+                    "mape": 185.89
+                }
+            },
+            "model_metrics": {
+                "mae_percent": 3.968,
+                "rmse_percent": 7.382,
+                "mape": 37.22
+            },
+            "persistence_baseline": {
+                "mae_percent": 3.968,
+                "rmse_percent": 7.382,
+                "mape": 37.22
+            },
+            "historical_avg_baseline": {
+                "mae_percent": 13.204,
+                "rmse_percent": 14.738,
+                "mape": 185.89
+            },
+            "random_forest_metrics": {
+                "mae_percent": 6.633,
+                "rmse_percent": 8.525,
+                "mape": 91.68
+            },
+            "beats_baseline_mae": false,
+            "beats_baseline_rmse": false,
+            "feature_importances": {
+                "current_congestion_percent": 0.0569,
+                "current_speed_kmh": 0.0275,
+                "free_flow_speed_kmh": 0.012,
+                "speed_ratio": 0.0843,
+                "free_flow_gap": 0.2254,
+                "hour": 0.0879,
+                "dayofweek": 0.0242,
+                "is_weekend": 0.0077,
+                "sin_hour": 0.1039,
+                "cos_hour": 0.0656,
+                "sin_dow": 0.0216,
+                "cos_dow": 0.0034,
+                "prior_congestion": 0.0557,
+                "prior_speed": 0.0157,
+                "cong_trend": 0.1865,
+                "speed_trend": 0.0214
+            },
+            "corridor_evaluations": {
+                "Mulshi Subdistrict:Hinjawadi": {
+                    "city": "Mulshi Subdistrict",
+                    "area": "Hinjawadi",
+                    "test_samples": 28,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 5.33,
+                    "best_on_corridor": "Persistence"
+                },
+                "Mumbai:CSMT, Mumbai": {
+                    "city": "Mumbai",
+                    "area": "CSMT, Mumbai",
+                    "test_samples": 28,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 5.32,
+                    "best_on_corridor": "Persistence"
+                },
+                "New Delhi:Connaught Place": {
+                    "city": "New Delhi",
+                    "area": "Connaught Place",
+                    "test_samples": 29,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 4.99,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Bibwewadi": {
+                    "city": "Pune",
+                    "area": "Bibwewadi",
+                    "test_samples": 15,
+                    "persistence_mae": 15.46,
+                    "selected_model_mae": 15.46,
+                    "rf_mae": 16.87,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Central Pune": {
+                    "city": "Pune",
+                    "area": "Central Pune",
+                    "test_samples": 65,
+                    "persistence_mae": 4.83,
+                    "selected_model_mae": 4.83,
+                    "rf_mae": 6.82,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Deccan / Shivajinagar, Pune": {
+                    "city": "Pune",
+                    "area": "Deccan / Shivajinagar, Pune",
+                    "test_samples": 18,
+                    "persistence_mae": 7.78,
+                    "selected_model_mae": 7.78,
+                    "rf_mae": 7.26,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Swargate / Sarasbaug": {
+                    "city": "Pune",
+                    "area": "Swargate / Sarasbaug",
+                    "test_samples": 27,
+                    "persistence_mae": 4.74,
+                    "selected_model_mae": 4.74,
+                    "rf_mae": 4.08,
+                    "best_on_corridor": "Persistence"
+                }
+            },
+            "location_support": {
+                "Jalgaon:Jalgaon": {
+                    "city": "Jalgaon",
+                    "area": "Jalgaon",
+                    "paired_samples": 16,
+                    "tier": "experimental"
+                },
+                "Mulshi Subdistrict:Hinjawadi": {
+                    "city": "Mulshi Subdistrict",
+                    "area": "Hinjawadi",
+                    "paired_samples": 168,
+                    "tier": "established"
+                },
+                "Mumbai:CSMT, Mumbai": {
+                    "city": "Mumbai",
+                    "area": "CSMT, Mumbai",
+                    "paired_samples": 73,
+                    "tier": "established"
+                },
+                "New Delhi:Connaught Place": {
+                    "city": "New Delhi",
+                    "area": "Connaught Place",
+                    "paired_samples": 186,
+                    "tier": "established"
+                },
+                "Pune:Bibwewadi": {
+                    "city": "Pune",
+                    "area": "Bibwewadi",
+                    "paired_samples": 45,
+                    "tier": "established"
+                },
+                "Pune:Central Pune": {
+                    "city": "Pune",
+                    "area": "Central Pune",
+                    "paired_samples": 477,
+                    "tier": "established"
+                },
+                "Pune:Deccan / Shivajinagar, Pune": {
+                    "city": "Pune",
+                    "area": "Deccan / Shivajinagar, Pune",
+                    "paired_samples": 31,
+                    "tier": "established"
+                },
+                "Pune:Shivajinagar": {
+                    "city": "Pune",
+                    "area": "Shivajinagar",
+                    "paired_samples": 5,
+                    "tier": "insufficient"
+                },
+                "Pune:Swargate / Sarasbaug": {
+                    "city": "Pune",
+                    "area": "Swargate / Sarasbaug",
+                    "paired_samples": 74,
+                    "tier": "established"
+                }
+            }
+        },
+        "30m": {
+            "horizon_minutes": 30,
+            "supported": true,
+            "selected_model_name": "Persistence",
+            "selected_algorithm": "Persistence Baseline (maintains current conditions, delta = 0)",
+            "selection_rationale": "Persistence selected for production on 30m horizon: achieved lowest/most robust error on validation (MAE 7.98%) and held-out test (MAE 4.18%). Prevents phantom volatility during steady-state traffic.",
+            "total_pairs": 921,
+            "train_samples": 474,
+            "val_samples": 174,
+            "test_samples": 185,
+            "train_time_range": [
+                "2026-10-15T08:49:27+05:30",
+                "2026-10-17T14:43:53+05:30"
+            ],
+            "val_time_range": [
+                "2026-10-17T15:13:21+05:30",
+                "2026-10-18T10:14:31+05:30"
+            ],
+            "test_time_range": [
+                "2026-10-18T10:44:24+05:30",
+                "2026-10-18T12:34:58+05:30"
+            ],
+            "training_data_cutoff_timestamp": "2026-10-17T14:43:53+05:30",
+            "validation_metrics": {
+                "Persistence": {
+                    "mae_percent": 7.983,
+                    "rmse_percent": 10.219,
+                    "mape": 64.77
+                },
+                "RandomForest": {
+                    "mae_percent": 7.797,
+                    "rmse_percent": 10.085,
+                    "mape": 62.26
+                },
+                "HistGradientBoosting": {
+                    "mae_percent": 8.262,
+                    "rmse_percent": 10.572,
+                    "mape": 62.79
+                },
+                "Ridge": {
+                    "mae_percent": 8.266,
+                    "rmse_percent": 10.786,
+                    "mape": 85.34
+                },
+                "HistoricalAvg": {
+                    "mae_percent": 7.206,
+                    "rmse_percent": 9.445,
+                    "mape": 70.38
+                }
+            },
+            "test_metrics": {
+                "Persistence": {
+                    "mae_percent": 4.177,
+                    "rmse_percent": 7.295,
+                    "mape": 29.99
+                },
+                "RandomForest": {
+                    "mae_percent": 6.622,
+                    "rmse_percent": 8.687,
+                    "mape": 87.56
+                },
+                "HistGradientBoosting": {
+                    "mae_percent": 6.971,
+                    "rmse_percent": 9.343,
+                    "mape": 91.13
+                },
+                "Ridge": {
+                    "mae_percent": 8.851,
+                    "rmse_percent": 9.765,
+                    "mape": 133.09
+                },
+                "HistoricalAvg": {
+                    "mae_percent": 13.323,
+                    "rmse_percent": 15.105,
+                    "mape": 195.12
+                }
+            },
+            "model_metrics": {
+                "mae_percent": 4.177,
+                "rmse_percent": 7.295,
+                "mape": 29.99
+            },
+            "persistence_baseline": {
+                "mae_percent": 4.177,
+                "rmse_percent": 7.295,
+                "mape": 29.99
+            },
+            "historical_avg_baseline": {
+                "mae_percent": 13.323,
+                "rmse_percent": 15.105,
+                "mape": 195.12
+            },
+            "random_forest_metrics": {
+                "mae_percent": 6.622,
+                "rmse_percent": 8.687,
+                "mape": 87.56
+            },
+            "beats_baseline_mae": false,
+            "beats_baseline_rmse": false,
+            "feature_importances": {
+                "current_congestion_percent": 0.154,
+                "current_speed_kmh": 0.0448,
+                "free_flow_speed_kmh": 0.0121,
+                "speed_ratio": 0.1804,
+                "free_flow_gap": 0.1176,
+                "hour": 0.0773,
+                "dayofweek": 0.0563,
+                "is_weekend": 0.0054,
+                "sin_hour": 0.1068,
+                "cos_hour": 0.0462,
+                "sin_dow": 0.0287,
+                "cos_dow": 0.0017,
+                "prior_congestion": 0.0368,
+                "prior_speed": 0.0304,
+                "cong_trend": 0.0898,
+                "speed_trend": 0.0116
+            },
+            "corridor_evaluations": {
+                "Mulshi Subdistrict:Hinjawadi": {
+                    "city": "Mulshi Subdistrict",
+                    "area": "Hinjawadi",
+                    "test_samples": 27,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 5.51,
+                    "best_on_corridor": "Persistence"
+                },
+                "Mumbai:CSMT, Mumbai": {
+                    "city": "Mumbai",
+                    "area": "CSMT, Mumbai",
+                    "test_samples": 25,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 5.53,
+                    "best_on_corridor": "Persistence"
+                },
+                "New Delhi:Connaught Place": {
+                    "city": "New Delhi",
+                    "area": "Connaught Place",
+                    "test_samples": 28,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 4.62,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Central Pune": {
+                    "city": "Pune",
+                    "area": "Central Pune",
+                    "test_samples": 61,
+                    "persistence_mae": 7.0,
+                    "selected_model_mae": 7.0,
+                    "rf_mae": 8.61,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Deccan / Shivajinagar, Pune": {
+                    "city": "Pune",
+                    "area": "Deccan / Shivajinagar, Pune",
+                    "test_samples": 17,
+                    "persistence_mae": 9.99,
+                    "selected_model_mae": 9.99,
+                    "rf_mae": 8.64,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Swargate / Sarasbaug": {
+                    "city": "Pune",
+                    "area": "Swargate / Sarasbaug",
+                    "test_samples": 24,
+                    "persistence_mae": 7.34,
+                    "selected_model_mae": 7.34,
+                    "rf_mae": 5.03,
+                    "best_on_corridor": "Persistence"
+                }
+            },
+            "location_support": {
+                "Jalgaon:Jalgaon": {
+                    "city": "Jalgaon",
+                    "area": "Jalgaon",
+                    "paired_samples": 6,
+                    "tier": "insufficient"
+                },
+                "Mulshi Subdistrict:Hinjawadi": {
+                    "city": "Mulshi Subdistrict",
+                    "area": "Hinjawadi",
+                    "paired_samples": 156,
+                    "tier": "established"
+                },
+                "Mumbai:CSMT, Mumbai": {
+                    "city": "Mumbai",
+                    "area": "CSMT, Mumbai",
+                    "paired_samples": 61,
+                    "tier": "established"
+                },
+                "New Delhi:Connaught Place": {
+                    "city": "New Delhi",
+                    "area": "Connaught Place",
+                    "paired_samples": 165,
+                    "tier": "established"
+                },
+                "Pune:Bibwewadi": {
+                    "city": "Pune",
+                    "area": "Bibwewadi",
+                    "paired_samples": 21,
+                    "tier": "experimental"
+                },
+                "Pune:Central Pune": {
+                    "city": "Pune",
+                    "area": "Central Pune",
+                    "paired_samples": 423,
+                    "tier": "established"
+                },
+                "Pune:Deccan / Shivajinagar, Pune": {
+                    "city": "Pune",
+                    "area": "Deccan / Shivajinagar, Pune",
+                    "paired_samples": 27,
+                    "tier": "established"
+                },
+                "Pune:Swargate / Sarasbaug": {
+                    "city": "Pune",
+                    "area": "Swargate / Sarasbaug",
+                    "paired_samples": 62,
+                    "tier": "established"
+                }
+            }
+        },
+        "60m": {
+            "horizon_minutes": 60,
+            "supported": true,
+            "selected_model_name": "Persistence",
+            "selected_algorithm": "Persistence Baseline (maintains current conditions, delta = 0)",
+            "selection_rationale": "Persistence selected for production on 60m horizon: achieved lowest/most robust error on validation (MAE 7.23%) and held-out test (MAE 3.36%). Prevents phantom volatility during steady-state traffic.",
+            "total_pairs": 851,
+            "train_samples": 354,
+            "val_samples": 146,
+            "test_samples": 171,
+            "train_time_range": [
+                "2026-10-15T08:49:27+05:30",
+                "2026-10-17T13:50:13+05:30"
+            ],
+            "val_time_range": [
+                "2026-10-17T14:48:52+05:30",
+                "2026-10-18T10:14:34+05:30"
+            ],
+            "test_time_range": [
+                "2026-10-18T11:14:24+05:30",
+                "2026-10-18T12:34:58+05:30"
+            ],
+            "training_data_cutoff_timestamp": "2026-10-17T13:50:13+05:30",
+            "validation_metrics": {
+                "Persistence": {
+                    "mae_percent": 7.234,
+                    "rmse_percent": 10.696,
+                    "mape": 66.84
+                },
+                "RandomForest": {
+                    "mae_percent": 7.041,
+                    "rmse_percent": 9.665,
+                    "mape": 58.17
+                },
+                "HistGradientBoosting": {
+                    "mae_percent": 7.697,
+                    "rmse_percent": 10.37,
+                    "mape": 61.48
+                },
+                "Ridge": {
+                    "mae_percent": 7.544,
+                    "rmse_percent": 9.727,
+                    "mape": 76.96
+                },
+                "HistoricalAvg": {
+                    "mae_percent": 6.754,
+                    "rmse_percent": 9.435,
+                    "mape": 67.4
+                }
+            },
+            "test_metrics": {
+                "Persistence": {
+                    "mae_percent": 3.358,
+                    "rmse_percent": 5.679,
+                    "mape": 26.2
+                },
+                "RandomForest": {
+                    "mae_percent": 8.673,
+                    "rmse_percent": 9.791,
+                    "mape": 123.64
+                },
+                "HistGradientBoosting": {
+                    "mae_percent": 8.828,
+                    "rmse_percent": 10.096,
+                    "mape": 124.83
+                },
+                "Ridge": {
+                    "mae_percent": 9.415,
+                    "rmse_percent": 10.319,
+                    "mape": 130.87
+                },
+                "HistoricalAvg": {
+                    "mae_percent": 14.154,
+                    "rmse_percent": 15.707,
+                    "mape": 202.09
+                }
+            },
+            "model_metrics": {
+                "mae_percent": 3.358,
+                "rmse_percent": 5.679,
+                "mape": 26.2
+            },
+            "persistence_baseline": {
+                "mae_percent": 3.358,
+                "rmse_percent": 5.679,
+                "mape": 26.2
+            },
+            "historical_avg_baseline": {
+                "mae_percent": 14.154,
+                "rmse_percent": 15.707,
+                "mape": 202.09
+            },
+            "random_forest_metrics": {
+                "mae_percent": 8.673,
+                "rmse_percent": 9.791,
+                "mape": 123.64
+            },
+            "beats_baseline_mae": false,
+            "beats_baseline_rmse": false,
+            "feature_importances": {
+                "current_congestion_percent": 0.1513,
+                "current_speed_kmh": 0.0667,
+                "free_flow_speed_kmh": 0.0187,
+                "speed_ratio": 0.0706,
+                "free_flow_gap": 0.1456,
+                "hour": 0.1626,
+                "dayofweek": 0.0251,
+                "is_weekend": 0.0006,
+                "sin_hour": 0.05,
+                "cos_hour": 0.1186,
+                "sin_dow": 0.0309,
+                "cos_dow": 0.0032,
+                "prior_congestion": 0.03,
+                "prior_speed": 0.0821,
+                "cong_trend": 0.0402,
+                "speed_trend": 0.0039
+            },
+            "corridor_evaluations": {
+                "Mulshi Subdistrict:Hinjawadi": {
+                    "city": "Mulshi Subdistrict",
+                    "area": "Hinjawadi",
+                    "test_samples": 27,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 8.97,
+                    "best_on_corridor": "Persistence"
+                },
+                "Mumbai:CSMT, Mumbai": {
+                    "city": "Mumbai",
+                    "area": "CSMT, Mumbai",
+                    "test_samples": 25,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 8.97,
+                    "best_on_corridor": "Persistence"
+                },
+                "New Delhi:Connaught Place": {
+                    "city": "New Delhi",
+                    "area": "Connaught Place",
+                    "test_samples": 26,
+                    "persistence_mae": 0.0,
+                    "selected_model_mae": 0.0,
+                    "rf_mae": 7.63,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Central Pune": {
+                    "city": "Pune",
+                    "area": "Central Pune",
+                    "test_samples": 59,
+                    "persistence_mae": 5.4,
+                    "selected_model_mae": 5.4,
+                    "rf_mae": 10.14,
+                    "best_on_corridor": "Persistence"
+                },
+                "Pune:Swargate / Sarasbaug": {
+                    "city": "Pune",
+                    "area": "Swargate / Sarasbaug",
+                    "test_samples": 25,
+                    "persistence_mae": 6.74,
+                    "selected_model_mae": 6.74,
+                    "rf_mae": 4.91,
+                    "best_on_corridor": "Persistence"
+                }
+            },
+            "location_support": {
+                "Mulshi Subdistrict:Hinjawadi": {
+                    "city": "Mulshi Subdistrict",
+                    "area": "Hinjawadi",
+                    "paired_samples": 151,
+                    "tier": "established"
+                },
+                "Mumbai:CSMT, Mumbai": {
+                    "city": "Mumbai",
+                    "area": "CSMT, Mumbai",
+                    "paired_samples": 58,
+                    "tier": "established"
+                },
+                "Mumbai:Mumbai": {
+                    "city": "Mumbai",
+                    "area": "Mumbai",
+                    "paired_samples": 1,
+                    "tier": "insufficient"
+                },
+                "New Delhi:Connaught Place": {
+                    "city": "New Delhi",
+                    "area": "Connaught Place",
+                    "paired_samples": 149,
+                    "tier": "established"
+                },
+                "Pune:Bibwewadi": {
+                    "city": "Pune",
+                    "area": "Bibwewadi",
+                    "paired_samples": 19,
+                    "tier": "experimental"
+                },
+                "Pune:Bibwewadi Corridor, Pune": {
+                    "city": "Pune",
+                    "area": "Bibwewadi Corridor, Pune",
+                    "paired_samples": 2,
+                    "tier": "insufficient"
+                },
+                "Pune:Central Pune": {
+                    "city": "Pune",
+                    "area": "Central Pune",
+                    "paired_samples": 392,
+                    "tier": "established"
+                },
+                "Pune:Deccan / Shivajinagar, Pune": {
+                    "city": "Pune",
+                    "area": "Deccan / Shivajinagar, Pune",
+                    "paired_samples": 14,
+                    "tier": "experimental"
+                },
+                "Pune:Shivajinagar": {
+                    "city": "Pune",
+                    "area": "Shivajinagar",
+                    "paired_samples": 7,
+                    "tier": "insufficient"
+                },
+                "Pune:Swargate / Sarasbaug": {
+                    "city": "Pune",
+                    "area": "Swargate / Sarasbaug",
+                    "paired_samples": 58,
+                    "tier": "established"
+                }
+            }
+        }
+    },
+    "metrics": {
+        "horizon_15m": {
+            "mae_percent": 3.968,
+            "rmse_percent": 7.382,
+            "mape": 37.22
+        },
+        "model_mae_kmh": 3.968,
+        "model_rmse_kmh": 7.382,
+        "comparison": "Models evaluated using 3-way chronological validation (Train 60%, Val 20%, Test 20%) with embargo boundary gaps preventing any future leakage. Candidates evaluated: Persistence, Historical Average, Random Forest, HistGradientBoosting, and Ridge. The best-performing model is selected independently for each horizon based on validation error."
+    },
+    "coverage_summary": {
+        "monitored_roads": [
+            "Central Pune",
+            "Connaught Place",
+            "Hinjawadi",
+            "Bibwewadi",
+            "Swargate / Sarasbaug",
+            "CSMT, Mumbai",
+            "Deccan / Shivajinagar, Pune",
+            "Jalgaon",
+            "Shivajinagar",
+            "Mumbai",
+            "Pune",
+            "Bibwewadi Corridor, Pune",
+            "Bandra / Mahim, Mumbai",
+            "Monitored Corridor",
+            "Katraj",
+            "Chalisgaon",
+            "Baner",
+            "Fort, Mumbai"
+        ],
+        "roads_with_repeated_observations": 8,
+        "sufficient_history": true
+    },
+    "limitations": [
+        "Trained for 15, 30, and 60 minute congestion forecasts on monitored road segments.",
+        "Requires at least 15 historical readings for high-confidence predictions on a specific road.",
+        "Predictions apply to road segments with known speed and free-flow speed.",
+        "Unmonitored roads without traffic observations cannot produce genuine ML predictions.",
+        "If severe incident data or road closure is not present in TomTom flow, model predicts recurring patterns."
+    ]
+}
